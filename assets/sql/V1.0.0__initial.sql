@@ -14,8 +14,9 @@ CREATE TABLE if not exists tab_todo
     title         text unique not null,
     content       text,
     deadline      text,
-    remind_at      text,
+    remind_at     text,
     done          integer     not null,
+    favourite     integer     not null,
     created_at    text        not null,
     updated_at    text        not null,
 
