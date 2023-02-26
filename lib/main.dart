@@ -1,9 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flink/service/core/sqlite_service.dart';
+import 'package:flink/utility/logger_facade.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  if (kDebugMode) LoggerFacade.initialize();
   await EasyLocalization.ensureInitialized();
+  await SqliteService.instance.initialize();
 
   runApp(
     EasyLocalization(
