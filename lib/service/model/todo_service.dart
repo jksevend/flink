@@ -34,6 +34,16 @@ class TodoService {
     return todoRecords.map((entry) => Todo.fromDatabaseEntry(entry)).toList();
   }
 
+  /// Read all [Todo] where [Todo.favourite] is true
+  Future<List<Todo>> readFavourites() async {
+    final List<Map<String, dynamic>> todoRecords =
+    await _database.rawQuery('select * from tab_todo where favourite = 1');
+    if (todoRecords.isEmpty) {
+      return [];
+    }
+    return todoRecords.map((entry) => Todo.fromDatabaseEntry(entry)).toList();
+  }
+
   /// Read all entries from the [Todo] table which match the collection [id]
   Future<List<Todo>> readAllByCollectionId(final String id) async {
     final List<Map<String, dynamic>> todoRecords =
