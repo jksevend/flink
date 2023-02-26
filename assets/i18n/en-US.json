@@ -4,5 +4,10 @@
   "app_settings_about_subtitle": "General app information",
   "app_settings_change_locale_subtitle": "Change the language of the app",
   "german": "German",
-  "english": "English"
+  "english": "English",
+
+  "tooltip_todo_overview": "Todo overview",
+  "tooltip_collection_overview": "Collections",
+  "tooltip_create_todo": "Create a new todo",
+  "tooltip_favourites": "Favourites"
 }

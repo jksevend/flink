@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flink/page/main_page.dart';
 import 'package:flink/service/core/sqlite_service.dart';
 import 'package:flink/utility/logger_facade.dart';
 import 'package:flutter/foundation.dart';
@@ -35,12 +36,7 @@ class FlinkApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flink'),
-          centerTitle: true,
-        ),
-      ),
+      home: const MainPage(),
     );
   }
 }
