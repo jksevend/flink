@@ -47,8 +47,8 @@ class TodoService {
   /// Insert a new [Todo]
   Future<void> insert(final Todo todo) async {
     await _database.rawInsert(
-        'insert into tab_todo (id, collection_id, title, content, deadline, remind_at, done, created_at, updated_at)'
-        ' values(?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        'insert into tab_todo (id, collection_id, title, content, deadline, remind_at, done, favourite, created_at, updated_at)'
+        ' values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [
           todo.id,
           todo.collection ?? 'NULL',
@@ -57,6 +57,7 @@ class TodoService {
           todo.deadline?.toIso8601String() ?? 'NULL',
           todo.remindAt?.toIso8601String() ?? 'NULL',
           todo.done == true ? 1 : 0,
+          todo.favourite == true ? 1 : 0,
           todo.createdAt.toIso8601String(),
           todo.updatedAt.toIso8601String(),
         ]);

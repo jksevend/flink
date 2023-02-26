@@ -8,12 +8,14 @@ class Todo extends Timestamp {
   bool done;
   DateTime? deadline;
   DateTime? remindAt;
+  bool favourite;
   String? collection;
 
   Todo({
     required this.title,
     this.content,
     this.done = false,
+    this.favourite = false,
     this.deadline,
     this.remindAt,
     this.collection,
@@ -25,6 +27,7 @@ class Todo extends Timestamp {
     required this.title,
     required this.content,
     required this.deadline,
+    required this.favourite,
     required this.done,
     required this.remindAt,
     required this.collection,
@@ -36,6 +39,7 @@ class Todo extends Timestamp {
       title: entry['title'],
       content: entry['content'],
       deadline: DateTime.parse(entry['deadline']),
+      favourite: entry['favourite'] == 0 ? false : true,
       done: entry['done'] == 0 ? false : true,
       remindAt: DateTime.parse(entry['remind_at']),
       collection: entry['collectionId'],
